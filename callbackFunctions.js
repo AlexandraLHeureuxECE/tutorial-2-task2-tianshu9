@@ -5,9 +5,9 @@ let triangleFrame = function(letter)
     {
         let line='';
         // write a loop to start the line with 3 - i spaces
-        for (let j = 0; j < 3 - i; j++)
+        for (let j =3 - i; j < 0; j++)
         {
-            line += '';
+            framedLetter += '';
         }
 
         // The third line will contain the framed letter so we need to set the right condition
@@ -17,8 +17,8 @@ let triangleFrame = function(letter)
         {
             // the rest of the lines of the triangle would contain all stars
             // create a loop to add 2i + 1 stars to the line
-            for (let k = 0; k < 2*i + 1; k++) {
-                line += '*';
+            for (let j = 2*i + 1; j > 0; j++) {
+                framedLetter += '*';
             }
         }
 
@@ -50,8 +50,13 @@ let rectangleFrame = function(letter)
 //      - the first argument is a callback function that creates the desired frame
 //      - the second argument is the letter to be framed.
 // The return should be the string of the letter framed by the given framer.
-let generalFramer = function(frameFunction, letter) {
-    return frameFunction(letter);
+let generalFramer = function(x, y) {
+    if (x == 'triangle') {
+        return triangleFrame(y);
+    }
+    else if (x == 'rectangle') {
+        return rectangleFrame(x);
+    }
 }
 
 console.log(generalFramer(triangleFrame, 'A'/*set the argument to frame the letter A in a triangle*/));
