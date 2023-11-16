@@ -5,34 +5,34 @@
  */
 
  /*This function will return the appropriate operation to perform a numberInvestigating task*/
- function getNumberInvestigatingTool(task)
+function getNumberInvestigatingTool(task)
 {
     switch (task)
     {
         // Complete the code so that based on a given string "palindrome, max, duplicate, divisibleBy" 
-        // The appropriate function is returned.
-
+        // The appropriate function is returned. 
         case 'palindrome':
-            return Palindrome;
+            return palindrome;
         case 'max':
-            return MaxDigit;
+            return maxDigit;
         case 'duplicate':
-            return DuplicateNumber;
+            return duplicateNumber;
         case 'divisibleBy':
-            return MakeDivisibleBy;
-        
+            return makeDivisibleBy; 
+    }
+
      /*Write a function that returns the palindrome number of the number you are given, 
     *For example, if you are given 1234, it should return 4321. 
     *You are expected to use only the loops/conditional statements we have learned in class. 
     *Keep in mind that you can access each digit of a number through simple operations. 
     *You can assume that this function will receive a number as a parameter. 
     *HINT: You can use Math.floor to get the integer closest to a numberr*/
-    function Palindrome(x){
+    function palindrome(x){
         let digit = 0;
         let palindrome = 0;
-        while(x > 0) {
-            digit = x % 10;
-            palindrome = (palindrome * 10) + digit;
+        while(x>0){
+            digit = x%10;
+            palindrome = (palindrome*10) + digit;
             x = Math.floor(x/10);
         }
         return String(palindrome);
@@ -43,12 +43,12 @@
     *Keep in mind that you can access each digit of a number through simple operations. 
     *You can assume that this function will receive a number as a parameter. 
     *HINT: You can use Math.floor to get the integer closest to a numberr*/
-    function MaxDigit(x) {
+    function maxDigit(x){
         let digit = 0;
         let max = 0;
-        while (x > 0){
-            digit = x % 10;
-            if (digit > max){
+        while(x>0){
+            digit = x%10;
+            if(digit > max){
                 max = digit;
             }
             x = Math.floor(x/10);
@@ -62,53 +62,47 @@
     *Keep in mind that you can access each digit of a number through simple operations. 
     *You can assume that this function will receive a number as a parameter. 
     *HINT: You can use Math.floor to get the integer closest to a number, the remainder operator is also helful*/
-    function DuplicateNumber(x) {
+    function duplicateNumber(x){
         let xString = String(x);
         let digit = xString[0];
-        for (let i = 0; i < xString.length; i++) {
-            if (xString[i+1] == digit) {
+        for(let i = 0; i < xString.length; i++){
+            if(xString[i+1] == digit){
                 return true;
             }
-            else {
+            else{
                 digit = xString[i+1];
             }
         }
         return false;
     }
-     
+
     /*This function will return the value needed to be added to a number to make it divisible by the given dividor. 
     *For example, if you are given 63 and 5, we are looking for the number needed to make 63 divisible by 5. In this case, 
     the function should return 2. To challenged yourself, try to use the && or || operator.
     *Keep in mind that you can access each digit of a number through simple operations. 
     *You can assume that this function will receive a number as a parameter. 
     *HINT: You can use Math.floor to get the integer closest to a number, the remainder operator is also helful*/
-
-    function MakeDivisibleBy(x, y) {
+    function makeDivisibleBy(x, y){
         let amount = 0;
-        while(x % y != 0) {
+        while(x%y != 0){
             amount++;
             x++;
         }
         return Number(amount);
     }
-    
-    }
+
 }
 
 // let Palindrome  =getNumberInvestigatingTool(/* call the NumberInvestigating tool so that it would return the palindrome making function */); 
 // let MaxDigit = getNumberInvestigatingTool(/* call the NumberInvestigating tool so that it would return the max digit finder function */);
 // let DuplicateNumber = getNumberInvestigatingTool(/* call the NumberInvestigating tool so that it would return the double digit Check function*/); 
 // let MakeDivisibleBy = getNumberInvestigatingTool(/* call the NumberInvestigating tool so that it would return the function that will makeANumberDivisibleBy function*/); 
-
-
 let Palindrome = getNumberInvestigatingTool('palindrome');
 let MaxDigit = getNumberInvestigatingTool('max');
 let DuplicateNumber = getNumberInvestigatingTool('duplicate');
-let MakeDivisibleBy = getNumberInvestigatingTool('divisibleBy'); 
-
+let MakeDivisibleBy = getNumberInvestigatingTool('divisibleBy');    
 
 // don't change the three lines below
-
 module.exports.Palindrome = Palindrome;
 module.exports.MaxDigit = MaxDigit;
 module.exports.DuplicateNumber = DuplicateNumber;
